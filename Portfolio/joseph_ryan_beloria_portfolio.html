@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Ryan Beloria | Electrical Engineer & Developer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        cinematic: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        director: {
+                            900: '#050505',
+                            800: '#111111',
+                            accent: '#3b82f6', // Electric Blue
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --mouse-x: 50vw;
+            --mouse-y: 50vh;
+        }
+        body { background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        
+        /* Interactive Mouse Glow */
+        .glow-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.08), transparent 80%);
+        }
+
+        /* Cinematic Film Grain */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        /* Top Progress Bar */
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #3b82f6;
+            z-index: 9999;
+            box-shadow: 0 0 15px #3b82f6, 0 0 5px #ffffff;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Hover Effects */
+        .glitch-hover:hover {
+            text-shadow: 2px 0 0 #3b82f6, -2px 0 0 #ef4444;
+            transition: text-shadow 0.3s ease;
+        }
+        .card-zoom {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+        }
+        .card-zoom:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.1);
+            z-index: 10;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- SCROLL ANIMATION ENGINE --- */
+        .reveal {
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .reveal.fade-up { transform: translateY(60px); }
+        .reveal.fade-down { transform: translateY(-60px); }
+        .reveal.slide-left { transform: translateX(60px); }
+        .reveal.slide-right { transform: translateX(-60px); }
+        .reveal.zoom-in { transform: scale(0.9); }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Animation Delays for Grids */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <div class="film-grain"></div>
+    <div id="scroll-progress-bar"></div>
+    <div class="glow-effect"></div>
+
+    <nav class="fixed w-full z-50 bg-director-900/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-cinematic text-xl tracking-widest text-white glitch-hover">JRB.</a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide text-gray-400">
+                <a href="#work" class="hover:text-white transition-colors">WORKS</a>
+                <a href="#experience" class="hover:text-white transition-colors">EXPERIENCE</a>
+                <a href="#skills" class="hover:text-white transition-colors">SKILLS</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+                <a href="Joseph_Beloria_Resume.pdf" download class="px-4 py-2 border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-colors rounded shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]">RESUME</a>
+            </div>
+            <a href="#contact" class="md:hidden text-white"><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Flexible Fast-Learner</p>
+            <h1 class="reveal zoom-in delay-100 font-cinematic text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight gradient-text tracking-tight">
+                JOSEPH RYAN BELORIA
+            </h1>
+            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                4th Year Electrical Engineering Undergraduate at TUP-Manila. Bridging the gap between physical power systems, hardware prototyping, and AI-driven software development.
+            </p>
+            <div class="reveal fade-up delay-300 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#work" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-cinematic font-bold tracking-widest text-sm hover:bg-gray-200 hover:scale-105 transition-all uppercase">Explore Works</a>
+                <a href="Joseph_Beloria_Resume.pdf" download class="w-full sm:w-auto px-8 py-4 border border-blue-500/50 bg-blue-500/10 text-blue-400 font-cinematic font-bold tracking-widest text-sm hover:bg-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:scale-105 transition-all uppercase"><i class="fa-solid fa-download mr-2"></i> Get Resume</a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-cinematic font-bold tracking-widest text-sm hover:bg-white/10 hover:scale-105 transition-all uppercase">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="work" class="py-24 bg-director-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-16 border-l-4 border-blue-500 pl-6 uppercase tracking-wider">Featured Masterpieces</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Mira AI - Featured Full Width -->
+                <div class="reveal fade-up lg:col-span-12 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">FLAGSHIP SOFTWARE</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-brands fa-python mr-1"></i> Python & Streamlit</span>
+                            </div>
+                            <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">MiraAi: Solar Auto-Designer</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed">
+                                An autonomous multi-agent workflow (powered by CrewAI and Google Gemini) designed for electrical engineers. Automatically calculates residential electrical loads, determines breaker sizing, and drafts NEC-compliant Single-Line Diagrams (SLDs) for grid-tie solar systems.
+                            </p>
+                            <a href="https://solar-engineering-ai.streamlit.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors">
+                                View Live Application <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-black/50 p-6 rounded-lg border border-white/5 font-mono text-xs text-blue-300 overflow-hidden hidden md:block shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-shadow duration-500">
+                            <p class="text-gray-500 mb-2">// Multi-Agent Crew Execution</p>
+                            <p>mira_crew = Crew(</p>
+                            <p class="pl-4">agents=[load_analyst, system_designer],</p>
+                            <p class="pl-4">tasks=[analyze_load, design_system],</p>
+                            <p class="pl-4">process=Process.sequential</p>
+                            <p>)</p>
+                            <p class="mt-2 text-green-400">mira_crew.kickoff()</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arduino Project -->
+                <div class="reveal fade-up delay-100 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="mb-4 text-gray-500 text-sm"><i class="fa-solid fa-microchip mr-1"></i> Arduino / Hardware</div>
+                        <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Custom Bluetooth Audio System</h3>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            Engineered and programmed a custom Bluetooth speaker from scratch using Arduino IDE. Handled the hardware wiring, audio decoding logic, signal amplification, and enclosure design to deliver high-fidelity wireless audio.
+                        </p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">C++</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Circuit Design</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">IoT</span>
+                    </div>
+                </div>
+
+                <!-- Elevator Control System -->
+                <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="mb-4 text-gray-500 text-sm"><i class="fa-solid fa-elevator mr-1"></i> Control Engineering</div>
+                        <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Elevator Control Overhaul</h3>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            During my OJT at Dex International, I built elevator control panels and commissioned systems. Highlight: Successfully assisted in changing the control system for a legacy elevator at the National Museum of Fine Arts, testing and verifying mechanical safety.
+                        </p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Industrial Controls</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Commissioning</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">PMS</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-director-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-16 border-l-4 border-white pl-6 uppercase tracking-wider">Career Timeline</h2>
+            
+            <div class="relative border-l border-white/20 ml-3 md:ml-6 space-y-12">
+                
+                <!-- Experience 1 -->
+                <div class="reveal slide-left relative pl-8 md:pl-12">
+                    <div class="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white font-cinematic">Electrical Staff / Assistant (OJT)</h3>
+                        <span class="text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Jun 2025 - Sep 2025</span>
+                    </div>
+                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-building mr-2"></i>Dex International Company | Quezon City</h4>
+                    <ul class="text-gray-400 text-sm space-y-2 list-disc ml-4">
+                        <li>Built control panels and systems for commercial elevators.</li>
+                        <li>Tested, commissioned, and performed Preventive Maintenance (PMS) on company-built elevators.</li>
+                        <li><strong>Major Project:</strong> Upgraded the control system for a legacy elevator at the National Museum of Fine Arts.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="reveal slide-left delay-100 relative pl-8 md:pl-12">
+                    <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white font-cinematic">Store Clerk / Crew</h3>
+                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Mar 2026 - Jun 2026</span>
+                    </div>
+                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-store mr-2"></i>Alfamart - Eton Tower | Makati City</h4>
+                    <p class="text-gray-400 text-sm">Handled fast-paced retail operations including cashiering, strict inventory management, and systematic checking of goods and supplies.</p>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="reveal slide-left delay-200 relative pl-8 md:pl-12">
+                    <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white font-cinematic">SPES Kitchen Staff (Scullery)</h3>
+                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2023 - Dec 2023</span>
+                    </div>
+                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-utensils mr-2"></i>Project Pie / Shopwise | Makati City</h4>
+                    <p class="text-gray-400 text-sm">Executed food preparation protocols based on exact menu specifications. Maintained strict hygiene standards and operational protocols.</p>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="reveal slide-left delay-300 relative pl-8 md:pl-12">
+                    <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white font-cinematic">Admin Encoder (GIP)</h3>
+                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2022 - Nov 2022</span>
+                    </div>
+                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-desktop mr-2"></i>Brgy. Sta Cruz Hall | Makati City</h4>
+                    <p class="text-gray-400 text-sm">Managed administrative workflows. Digitized and encoded massive datasets of local residents utilizing Microsoft Excel for efficient retrieval.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-director-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Education -->
+                <div>
+                    <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
+                    
+                    <div class="reveal fade-up bg-director-900 border border-white/5 p-6 rounded-lg mb-6 card-zoom shadow-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white font-cinematic">Technological University of the Philippines-Manila</h3>
+                            <span class="text-blue-400 text-sm font-bold">2022 - 2026</span>
+                        </div>
+                        <p class="text-md text-gray-300 font-medium">BS in Electrical Engineering</p>
+                        <p class="text-sm text-gray-500 mt-2">4th Year Undergraduate</p>
+                    </div>
+
+                    <div class="reveal fade-up delay-100 bg-director-900 border border-white/5 p-6 rounded-lg card-zoom shadow-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white font-cinematic">Makati High School</h3>
+                            <span class="text-gray-400 text-sm font-bold">2020 - 2022</span>
+                        </div>
+                        <p class="text-md text-gray-300 font-medium">Senior High School (STEM)</p>
+                        <p class="text-sm text-blue-400 mt-2"><i class="fa-solid fa-medal mr-1"></i> Graduated with High Honors (95 Avg)</p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div>
+                    <h2 class="reveal slide-right delay-100 font-cinematic text-3xl font-bold mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="reveal fade-up">
+                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Engineering & Hardware</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Electrical System Design</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Control Panels</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Elevator Systems</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">AutoCAD</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Multisim & Tinker CAD</span>
+                            </div>
+                        </div>
+
+                        <div class="reveal fade-up delay-100">
+                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Software & Code</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Python</span>
+                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">C++ / Arduino IDE</span>
+                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Generative AI (CrewAI, Gemini)</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Streamlit</span>
+                            </div>
+                        </div>
+
+                        <div class="reveal fade-up delay-200">
+                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Computer & Office Skills</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Microsoft Excel (Advanced Data Encoding)</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Microsoft Office Suite</span>
+                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Google Workspace Apps</span>
+                            </div>
+                        </div>
+
+                        <div class="reveal fade-up delay-300">
+                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Soft Skills & Others</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-check text-blue-500 mr-2"></i>Leadership & Collaboration</span>
+                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-check text-blue-500 mr-2"></i>Research & Analysis</span>
+                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-music text-blue-500 mr-2"></i>Music & Culinary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-black py-16 border-t border-white/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+            <h2 class="reveal fade-up font-cinematic text-4xl font-bold mb-8 text-white uppercase tracking-widest">Let's Connect</h2>
+            <p class="reveal fade-up delay-100 text-gray-400 mb-10 text-center max-w-lg">
+                Whether it's electrical design, hardware prototyping, or building AI-driven engineering tools, I'm ready for the next challenge.
+            </p>
+            
+            <div class="reveal fade-up delay-200 flex flex-col sm:flex-row gap-6 mb-16">
+                <a href="mailto:josephryanbeloria12@gmail.com" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:-translate-y-1">
+                    <i class="fa-solid fa-envelope text-blue-400 group-hover:text-blue-300"></i>
+                    <span class="text-gray-200 text-sm">josephryanbeloria12@gmail.com</span>
+                </a>
+                <a href="tel:+639915870342" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:-translate-y-1">
+                    <i class="fa-solid fa-phone text-blue-400 group-hover:text-blue-300"></i>
+                    <span class="text-gray-200 text-sm">+63 991 587 0342</span>
+                </a>
+            </div>
+
+            <div class="reveal zoom-in delay-300 text-center text-gray-600 text-xs flex flex-col items-center gap-2">
+                <p><i class="fa-solid fa-location-dot mr-1"></i> Olympia, Makati City, Philippines</p>
+                <p>&copy; 2026 Joseph Ryan Beloria. Designed with purpose.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Intersection Observer for Scroll Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Triggers when 15% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        // Remove the active class when the element leaves the screen
+                        // This allows the animation to re-trigger on scroll up and down!
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+            // 2. Top Scroll Progress Bar
+            window.addEventListener('scroll', () => {
+                const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
+                const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+                document.getElementById("scroll-progress-bar").style.width = scrolled;
+            });
+
+            // 3. Interactive Mouse Glow (Flashlight Effect)
+            document.addEventListener('mousemove', (e) => {
+                document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+                document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            });
+        });
+    </script>
+</body>
+</html>
