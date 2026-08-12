@@ -9,7 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <script>
         tailwind.config = {
@@ -147,10 +150,19 @@
         
         <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Flexible Fast-Learner</p>
-            <h1 class="reveal zoom-in delay-100 font-cinematic text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight gradient-text tracking-tight">
-                JOSEPH RYAN BELORIA
-            </h1>
-            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            
+            <!-- Image & Text Overlay Container -->
+            <div class="relative flex items-center justify-center min-h-[140px] md:min-h-[220px]">
+                <!-- CSS Mask removes the white background dynamically -->
+                <!-- IMPORTANT: Change "YOUR_PHOTO_NAME.jpg" to your actual image file name! -->
+                <img src="YOUR_PHOTO_NAME.jpg" alt="Joseph Ryan Beloria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-[500px] md:h-[500px] object-cover object-top opacity-40 pointer-events-none reveal zoom-in" style="mask-image: radial-gradient(circle at 50% 40%, black 15%, transparent 50%); -webkit-mask-image: radial-gradient(circle at 50% 40%, black 15%, transparent 50%);">
+                
+                <h1 class="relative z-10 reveal zoom-in delay-100 font-cinematic text-5xl md:text-7xl lg:text-8xl font-black mb-0 leading-tight gradient-text tracking-tight drop-shadow-2xl">
+                    JOSEPH RYAN BELORIA
+                </h1>
+            </div>
+
+            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed mt-6">
                 4th Year Electrical Engineering Undergraduate at TUP-Manila. Bridging the gap between physical power systems, hardware prototyping, and AI-driven software development.
             </p>
             <div class="reveal fade-up delay-300 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -167,14 +179,48 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Mira AI - Featured Full Width -->
+                <!-- KuryenteCalc - Featured Full Width -->
                 <div class="reveal fade-up lg:col-span-12 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/20 to-transparent z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest rounded-full border border-emerald-500/30">NATIVE MOBILE APP</span>
+                                <span class="text-gray-500 text-sm flex items-center gap-2">
+                                    <i class="devicon-javascript-plain"></i> JavaScript
+                                    <i class="devicon-firebase-plain"></i> Firebase
+                                </span>
+                            </div>
+                            <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">KuryenteCalc: Smart Bill Optimizer</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed">
+                                A cross-platform mobile application and web tool that estimates monthly electricity bills. Features a custom Generative AI chatbot (Manong Kurti) and AI-based OCR bill scanning, securely powered by Netlify Serverless Functions and synchronized globally via Firebase Authentication & Firestore. Built natively for Android using Capacitor.
+                            </p>
+                            <a href="https://whimsical-brioche-73c97d.netlify.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-emerald-400 transition-colors">
+                                View Web Application <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                        <div class="w-full md:w-1/3 bg-black/50 p-6 rounded-lg border border-white/5 font-mono text-xs text-emerald-300 overflow-hidden hidden md:block shadow-[0_0_30px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-shadow duration-500">
+                            <p class="text-gray-500 mb-2">// Secure Serverless AI Endpoint</p>
+                            <p>exports.handler = async(e) => {</p>
+                            <p class="pl-4">const data = JSON.parse(e.body);</p>
+                            <p class="pl-4">const response = await fetch(</p>
+                            <p class="pl-8">`/v1beta/models/gemini...`</p>
+                            <p class="pl-4">);</p>
+                            <p class="pl-4 mt-2 text-blue-400">// Native App Compilation</p>
+                            <p class="pl-4 text-purple-400">npx cap sync android</p>
+                            <p>}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mira AI - Featured Full Width -->
+                <div class="reveal fade-up delay-100 lg:col-span-12 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 shadow-lg">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
                         <div class="flex-1">
                             <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">FLAGSHIP SOFTWARE</span>
-                                <span class="text-gray-500 text-sm"><i class="fa-brands fa-python mr-1"></i> Python & Streamlit</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">ENGINEERING SOFTWARE</span>
+                                <span class="text-gray-500 text-sm flex items-center gap-2"><i class="devicon-python-plain"></i> Python & Streamlit</span>
                             </div>
                             <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">MiraAi: Solar Auto-Designer</h3>
                             <p class="text-gray-400 mb-6 leading-relaxed">
@@ -187,8 +233,8 @@
                         <div class="w-full md:w-1/3 bg-black/50 p-6 rounded-lg border border-white/5 font-mono text-xs text-blue-300 overflow-hidden hidden md:block shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-shadow duration-500">
                             <p class="text-gray-500 mb-2">// Multi-Agent Crew Execution</p>
                             <p>mira_crew = Crew(</p>
-                            <p class="pl-4">agents=[load_analyst, system_designer],</p>
-                            <p class="pl-4">tasks=[analyze_load, design_system],</p>
+                            <p class="pl-4">agents=[load_analyst, designer],</p>
+                            <p class="pl-4">tasks=[analyze_load, draft_sld],</p>
                             <p class="pl-4">process=Process.sequential</p>
                             <p>)</p>
                             <p class="mt-2 text-green-400">mira_crew.kickoff()</p>
@@ -197,15 +243,15 @@
                 </div>
 
                 <!-- Arduino Project -->
-                <div class="reveal fade-up delay-100 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="mb-4 text-gray-500 text-sm"><i class="fa-solid fa-microchip mr-1"></i> Arduino / Hardware</div>
+                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="devicon-arduino-plain"></i> C++ / Hardware</div>
                         <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Custom Bluetooth Audio System</h3>
                         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                             Engineered and programmed a custom Bluetooth speaker from scratch using Arduino IDE. Handled the hardware wiring, audio decoding logic, signal amplification, and enclosure design to deliver high-fidelity wireless audio.
                         </p>
                     </div>
-                    <div class="flex gap-3">
+                    <div class="flex flex-wrap gap-3">
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">C++</span>
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Circuit Design</span>
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">IoT</span>
@@ -213,15 +259,15 @@
                 </div>
 
                 <!-- Elevator Control System -->
-                <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                <div class="reveal fade-up delay-300 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="mb-4 text-gray-500 text-sm"><i class="fa-solid fa-elevator mr-1"></i> Control Engineering</div>
+                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="fa-solid fa-elevator"></i> Control Engineering</div>
                         <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Elevator Control Overhaul</h3>
                         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                             During my OJT at Dex International, I built elevator control panels and commissioned systems. Highlight: Successfully assisted in changing the control system for a legacy elevator at the National Museum of Fine Arts, testing and verifying mechanical safety.
                         </p>
                     </div>
-                    <div class="flex gap-3">
+                    <div class="flex flex-wrap gap-3">
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Industrial Controls</span>
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Commissioning</span>
                         <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">PMS</span>
@@ -325,30 +371,39 @@
                         <div class="reveal fade-up">
                             <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Engineering & Hardware</h4>
                             <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Electrical System Design</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Control Panels</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Elevator Systems</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">AutoCAD</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Multisim & Tinker CAD</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-bolt text-yellow-400"></i> Electrical System Design</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-microchip text-gray-400"></i> Control Panels</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-elevator text-gray-400"></i> Elevator Systems</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-drafting-compass text-blue-400"></i> AutoCAD</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> Multisim & Tinker CAD</span>
                             </div>
                         </div>
 
                         <div class="reveal fade-up delay-100">
-                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Software & Code</h4>
+                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Software & Full-Stack Development</h4>
                             <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Python</span>
-                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">C++ / Arduino IDE</span>
-                                <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Generative AI (CrewAI, Gemini)</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Streamlit</span>
+                                <!-- App & Web Tech -->
+                                <span class="px-4 py-2 flex items-center gap-2 bg-[#F7DF1E]/10 border border-[#F7DF1E]/20 rounded hover:bg-[#F7DF1E]/20 transition-colors text-sm text-[#F7DF1E]"><i class="devicon-javascript-plain"></i> JavaScript</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-[#339933]/10 border border-[#339933]/20 rounded hover:bg-[#339933]/20 transition-colors text-sm text-[#339933]"><i class="devicon-nodejs-plain"></i> Node.js</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-[#FFCA28]/10 border border-[#FFCA28]/20 rounded hover:bg-[#FFCA28]/20 transition-colors text-sm text-[#FFCA28]"><i class="devicon-firebase-plain"></i> Firebase</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-[#00C7B7]/10 border border-[#00C7B7]/20 rounded hover:bg-[#00C7B7]/20 transition-colors text-sm text-[#00C7B7]"><i class="devicon-netlify-plain"></i> Netlify Serverless</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-[#3DDC84]/10 border border-[#3DDC84]/20 rounded hover:bg-[#3DDC84]/20 transition-colors text-sm text-[#3DDC84]"><i class="devicon-androidstudio-plain"></i> Android Studio</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="devicon-ionic-original text-blue-500"></i> Capacitor / Ionic</span>
+                                
+                                <!-- Core & Engineering Tech -->
+                                <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-python-plain"></i> Python</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-cplusplus-plain"></i> C++ / Arduino IDE</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-robot text-purple-400"></i> Generative AI (CrewAI, Gemini)</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="devicon-streamlit-plain text-red-400"></i> Streamlit</span>
                             </div>
                         </div>
 
                         <div class="reveal fade-up delay-200">
                             <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Computer & Office Skills</h4>
                             <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Microsoft Excel (Advanced Data Encoding)</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Microsoft Office Suite</span>
-                                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200">Google Workspace Apps</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-file-excel text-green-500"></i> Microsoft Excel</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-brands fa-microsoft text-blue-400"></i> Microsoft Office</span>
+                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-brands fa-google text-red-400"></i> Google Workspace</span>
                             </div>
                         </div>
 
