@@ -114,6 +114,19 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
         .delay-400 { transition-delay: 400ms; }
+
+        /* Perfect Center Grid Overlay Stack */
+        .hero-grid-stack {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+        .hero-grid-stack > * {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
@@ -142,15 +155,16 @@
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
         </div>
         
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
             <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Flexible Fast-Learner</p>
             
-            <!-- Image & Text Overlay Container (Perfect Centering) -->
-            <div class="relative flex items-center justify-center min-h-[220px] md:min-h-[320px]">
-                <!-- Profile Image centered behind name with mask fade -->
-                <img src="image_13a075.png" alt="Joseph Ryan Beloria" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[420px] md:h-[420px] object-cover object-top opacity-50 pointer-events-none reveal zoom-in" style="mask-image: radial-gradient(circle at 50% 50%, black 25%, transparent 70%); -webkit-mask-image: radial-gradient(circle at 50% 50%, black 25%, transparent 70%);">
+            <!-- Hero Stack Container: Text and Image aligned to exact same center -->
+            <div class="hero-grid-stack my-4 w-full relative">
+                <!-- Centered Photo Overlay (Behind text, perfectly centered) -->
+                <img src="image_13a075.png" alt="Joseph Ryan Beloria" class="z-0 w-72 h-72 md:w-[460px] md:h-[460px] object-cover object-top opacity-40 pointer-events-none reveal zoom-in" style="mask-image: radial-gradient(circle at 50% 45%, black 20%, transparent 65%); -webkit-mask-image: radial-gradient(circle at 50% 45%, black 20%, transparent 65%);">
                 
-                <h1 class="relative z-10 reveal zoom-in delay-100 font-cinematic text-5xl md:text-7xl lg:text-8xl font-black mb-0 leading-tight gradient-text tracking-tight drop-shadow-2xl">
+                <!-- Headline Text (Layered directly over center of photo) -->
+                <h1 class="z-10 reveal zoom-in delay-100 font-cinematic text-5xl md:text-7xl lg:text-8xl font-black leading-tight gradient-text tracking-tight drop-shadow-2xl select-none">
                     JOSEPH RYAN BELORIA
                 </h1>
             </div>
@@ -369,7 +383,6 @@
                         <div class="reveal fade-up delay-100">
                             <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Software & Full-Stack Development</h4>
                             <div class="flex flex-wrap gap-3">
-                                <!-- App & Web Tech -->
                                 <span class="px-4 py-2 flex items-center gap-2 bg-[#F7DF1E]/10 border border-[#F7DF1E]/20 rounded hover:bg-[#F7DF1E]/20 transition-colors text-sm text-[#F7DF1E]"><i class="devicon-javascript-plain"></i> JavaScript</span>
                                 <span class="px-4 py-2 flex items-center gap-2 bg-[#339933]/10 border border-[#339933]/20 rounded hover:bg-[#339933]/20 transition-colors text-sm text-[#339933]"><i class="devicon-nodejs-plain"></i> Node.js</span>
                                 <span class="px-4 py-2 flex items-center gap-2 bg-[#FFCA28]/10 border border-[#FFCA28]/20 rounded hover:bg-[#FFCA28]/20 transition-colors text-sm text-[#FFCA28]"><i class="devicon-firebase-plain"></i> Firebase</span>
@@ -377,7 +390,6 @@
                                 <span class="px-4 py-2 flex items-center gap-2 bg-[#3DDC84]/10 border border-[#3DDC84]/20 rounded hover:bg-[#3DDC84]/20 transition-colors text-sm text-[#3DDC84]"><i class="devicon-androidstudio-plain"></i> Android Studio</span>
                                 <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="devicon-ionic-original text-blue-500"></i> Capacitor / Ionic</span>
                                 
-                                <!-- Core & Engineering Tech -->
                                 <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-python-plain"></i> Python</span>
                                 <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-cplusplus-plain"></i> C++ / Arduino IDE</span>
                                 <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-robot text-purple-400"></i> Generative AI (CrewAI, Gemini)</span>
