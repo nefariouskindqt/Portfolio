@@ -15,18 +15,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        cinematic: ['Montserrat', 'sans-serif'],
-                    },
-                    colors: {
-                        director: {
-                            900: '#050505',
-                            800: '#111111',
-                            accent: '#3b82f6',
+        window.tailwind = {
+            config: {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            cinematic: ['Montserrat', 'sans-serif'],
+                        },
+                        colors: {
+                            director: {
+                                900: '#050505',
+                                800: '#111111',
+                                accent: '#3b82f6',
+                            }
                         }
                     }
                 }
@@ -41,6 +43,7 @@
         }
         body { background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
         
+        /* Interactive Mouse Glow */
         .glow-effect {
             position: fixed;
             top: 0;
@@ -52,6 +55,7 @@
             background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.08), transparent 80%);
         }
 
+        /* Cinematic Film Grain */
         .film-grain {
             position: fixed;
             top: 0;
@@ -64,6 +68,7 @@
             background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
 
+        /* Top Progress Bar */
         #scroll-progress-bar {
             position: fixed;
             top: 0;
@@ -76,6 +81,7 @@
             transition: width 0.1s ease-out;
         }
 
+        /* Hover Effects */
         .glitch-hover:hover {
             text-shadow: 2px 0 0 #3b82f6, -2px 0 0 #ef4444;
             transition: text-shadow 0.3s ease;
@@ -94,6 +100,7 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* --- SCROLL ANIMATION ENGINE --- */
         .reveal {
             opacity: 0;
             will-change: transform, opacity;
@@ -110,12 +117,7 @@
             transform: translate(0) scale(1);
         }
 
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
-        .delay-400 { transition-delay: 400ms; }
-
-        /* Perfect Center Grid Overlay Stack */
+        /* Perfect Center Grid Overlay Stack for Hero Image */
         .hero-grid-stack {
             display: grid;
             grid-template-columns: 1fr;
@@ -127,6 +129,12 @@
             grid-column: 1 / -1;
             grid-row: 1 / -1;
         }
+
+        /* Animation Delays for Grids */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
@@ -155,23 +163,29 @@
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
         </div>
         
-        <div class="relative z-10 text-center px-6 w-full max-w-6xl mx-auto">
-            <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-2 uppercase text-sm">Flexible Fast-Learner</p>
+        <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+            <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Flexible Fast-Learner</p>
             
-            <!-- Hero Stack Container: Image layered IN FRONT of text -->
+            <!-- Hero Stack Container: Interwoven Magazine Text & Image -->
             <div class="hero-grid-stack my-4 w-full relative">
                 
-                <!-- Headline Text (Layered directly BEHIND photo) -->
-                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none">
+                <!-- BACKGROUND TEXT: Solid Fill -->
+                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none">
                     JOSEPH RYAN<br>BELORIA
                 </h1>
 
-                <!-- Photo Overlay (In FRONT of text, FULL opacity, NO circle mask) -->
-                <!-- Note: The drop-shadow makes the image pop out from the text -->
-                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 w-[280px] sm:w-[350px] md:w-[480px] h-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <!-- MIDDLE LAYER: Free-Form Image Overlay (No Mask, Solid Opacity) -->
+                <!-- Use a transparent PNG for the best magazine cutout effect -->
+                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 h-[300px] md:h-[450px] lg:h-[550px] w-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                
+                <!-- FOREGROUND TEXT: Stroke Only (Creates the overlap blend effect) -->
+                <h1 aria-hidden="true" class="z-20 reveal zoom-in delay-100 font-cinematic text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] tracking-tighter select-none pointer-events-none" style="color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.15);">
+                    JOSEPH RYAN<br>BELORIA
+                </h1>
+                
             </div>
 
-            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed mt-4">
+            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed mt-6">
                 4th Year Electrical Engineering Undergraduate at TUP-Manila. Bridging the gap between physical power systems, hardware prototyping, and AI-driven software development.
             </p>
             <div class="reveal fade-up delay-300 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -197,7 +211,7 @@
                                 <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest rounded-full border border-emerald-500/30">NATIVE MOBILE APP</span>
                                 <span class="text-gray-500 text-sm flex items-center gap-2">
                                     <i class="devicon-javascript-plain"></i> JavaScript
-                                    <i class="devicon-firebase-plain"></i> Firebase
+                                    <i class="devicon-firebase-plain colored"></i> Firebase
                                 </span>
                             </div>
                             <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">KuryenteCalc: Smart Bill Optimizer</h3>
@@ -229,7 +243,7 @@
                         <div class="flex-1">
                             <div class="flex items-center gap-3 mb-4">
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">ENGINEERING SOFTWARE</span>
-                                <span class="text-gray-500 text-sm flex items-center gap-2"><i class="devicon-python-plain"></i> Python & Streamlit</span>
+                                <span class="text-gray-500 text-sm flex items-center gap-2"><i class="devicon-python-plain colored"></i> Python & Streamlit</span>
                             </div>
                             <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">MiraAi: Solar Auto-Designer</h3>
                             <p class="text-gray-400 mb-6 leading-relaxed">
@@ -254,7 +268,7 @@
                 <!-- Arduino Project -->
                 <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="devicon-arduino-plain"></i> C++ / Hardware</div>
+                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="devicon-arduino-plain colored"></i> C++ / Hardware</div>
                         <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Custom Bluetooth Audio System</h3>
                         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                             Engineered and programmed a custom Bluetooth speaker from scratch using Arduino IDE. Handled the hardware wiring, audio decoding logic, signal amplification, and enclosure design to deliver high-fidelity wireless audio.
@@ -341,85 +355,167 @@
         </div>
     </section>
 
+    <!-- NEW Layout: Education & Skills Wall -->
     <section id="skills" class="py-24 bg-director-800 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Education Top Section -->
+            <div class="mb-20">
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
                 
-                <div>
-                    <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
-                    
-                    <div class="reveal fade-up bg-director-900 border border-white/5 p-6 rounded-lg mb-6 card-zoom shadow-lg">
-                        <div class="flex justify-between items-start mb-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="reveal fade-up bg-director-900 border border-white/5 p-6 rounded-lg card-zoom shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
                             <h3 class="text-lg font-bold text-white font-cinematic">Technological University of the Philippines-Manila</h3>
-                            <span class="text-blue-400 text-sm font-bold">2022 - 2026</span>
+                            <span class="text-blue-400 text-sm font-bold whitespace-nowrap">2022 - 2026</span>
                         </div>
                         <p class="text-md text-gray-300 font-medium">BS in Electrical Engineering</p>
                         <p class="text-sm text-gray-500 mt-2">4th Year Undergraduate</p>
                     </div>
 
                     <div class="reveal fade-up delay-100 bg-director-900 border border-white/5 p-6 rounded-lg card-zoom shadow-lg">
-                        <div class="flex justify-between items-start mb-2">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
                             <h3 class="text-lg font-bold text-white font-cinematic">Makati High School</h3>
-                            <span class="text-gray-400 text-sm font-bold">2020 - 2022</span>
+                            <span class="text-gray-400 text-sm font-bold whitespace-nowrap">2020 - 2022</span>
                         </div>
                         <p class="text-md text-gray-300 font-medium">Senior High School (STEM)</p>
                         <p class="text-sm text-blue-400 mt-2"><i class="fa-solid fa-medal mr-1"></i> Graduated with High Honors (95 Avg)</p>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <h2 class="reveal slide-right delay-100 font-cinematic text-3xl font-bold mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
+            <!-- Wall of Brands: Technical Arsenal -->
+            <div>
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
+                
+                <!-- Huge Grid Layout mimicking the "Logo Wall" -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal fade-up">
                     
-                    <div class="space-y-8">
-                        <div class="reveal fade-up">
-                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Engineering & Hardware</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-bolt text-yellow-400"></i> Electrical System Design</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-microchip text-gray-400"></i> Control Panels</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-elevator text-gray-400"></i> Elevator Systems</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-drafting-compass text-blue-400"></i> AutoCAD</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> Multisim & Tinker CAD</span>
-                            </div>
-                        </div>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-firebase-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Firebase</span>
+                    </div>
 
-                        <div class="reveal fade-up delay-100">
-                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Software & Full-Stack Development</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 flex items-center gap-2 bg-[#F7DF1E]/10 border border-[#F7DF1E]/20 rounded hover:bg-[#F7DF1E]/20 transition-colors text-sm text-[#F7DF1E]"><i class="devicon-javascript-plain"></i> JavaScript</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-[#339933]/10 border border-[#339933]/20 rounded hover:bg-[#339933]/20 transition-colors text-sm text-[#339933]"><i class="devicon-nodejs-plain"></i> Node.js</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-[#FFCA28]/10 border border-[#FFCA28]/20 rounded hover:bg-[#FFCA28]/20 transition-colors text-sm text-[#FFCA28]"><i class="devicon-firebase-plain"></i> Firebase</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-[#00C7B7]/10 border border-[#00C7B7]/20 rounded hover:bg-[#00C7B7]/20 transition-colors text-sm text-[#00C7B7]"><i class="devicon-netlify-plain"></i> Netlify Serverless</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-[#3DDC84]/10 border border-[#3DDC84]/20 rounded hover:bg-[#3DDC84]/20 transition-colors text-sm text-[#3DDC84]"><i class="devicon-androidstudio-plain"></i> Android Studio</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="devicon-ionic-original text-blue-500"></i> Capacitor / Ionic</span>
-                                
-                                <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-python-plain"></i> Python</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded hover:bg-blue-500/20 transition-colors text-sm text-blue-300 shadow-[0_0_10px_rgba(59,130,246,0.1)]"><i class="devicon-cplusplus-plain"></i> C++ / Arduino IDE</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-robot text-purple-400"></i> Generative AI (CrewAI, Gemini)</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="devicon-streamlit-plain text-red-400"></i> Streamlit</span>
-                            </div>
-                        </div>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-netlify-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Netlify</span>
+                    </div>
 
-                        <div class="reveal fade-up delay-200">
-                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Computer & Office Skills</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-solid fa-file-excel text-green-500"></i> Microsoft Excel</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-brands fa-microsoft text-blue-400"></i> Microsoft Office</span>
-                                <span class="px-4 py-2 flex items-center gap-2 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm text-gray-200"><i class="fa-brands fa-google text-red-400"></i> Google Workspace</span>
-                            </div>
-                        </div>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-androidstudio-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center text-center">Android Studio</span>
+                    </div>
 
-                        <div class="reveal fade-up delay-300">
-                            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-bold">Soft Skills & Others</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-check text-blue-500 mr-2"></i>Leadership & Collaboration</span>
-                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-check text-blue-500 mr-2"></i>Research & Analysis</span>
-                                <span class="px-3 py-1 text-sm text-gray-400"><i class="fa-solid fa-music text-blue-500 mr-2"></i>Music & Culinary</span>
-                            </div>
-                        </div>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-nodejs-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Node.js</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-javascript-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">JavaScript</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-python-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Python</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-streamlit-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Streamlit</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-cplusplus-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">C++</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-arduino-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Arduino</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-ionic-original text-blue-500 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Capacitor</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-robot text-purple-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Generative AI</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-bolt text-yellow-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">AutoCAD/Design</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-file-excel text-green-600 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Excel</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-file-word text-blue-600 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Word</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-brands fa-google text-red-500 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center text-center">Google Apps</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-emerald-500 pl-4 uppercase">Soft Skills & Traits</h2>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal fade-up">
+                    
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-users-gear text-orange-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Leadership</span>
+                    </div>
+                    
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-puzzle-piece text-green-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Problem Solving</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-brain text-rose-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Critical Thinking</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-shuffle text-blue-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Adaptability</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-comments text-purple-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Communication</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-handshake-angle text-pink-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Collaboration</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass-chart text-yellow-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Research & Analysis</span>
+                    </div>
+                    
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-clock text-emerald-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Time Management</span>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </section>
 
