@@ -143,9 +143,22 @@
     <div id="scroll-progress-bar"></div>
     <div class="glow-effect"></div>
 
+    <!-- Mobile Slide-out Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-director-900/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-3xl hover:text-blue-500 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#work" class="mobile-link text-2xl font-cinematic tracking-widest text-gray-300 hover:text-white transition-colors">WORKS</a>
+        <a href="#experience" class="mobile-link text-2xl font-cinematic tracking-widest text-gray-300 hover:text-white transition-colors">EXPERIENCE</a>
+        <a href="#skills" class="mobile-link text-2xl font-cinematic tracking-widest text-gray-300 hover:text-white transition-colors">SKILLS</a>
+        <a href="#contact" class="mobile-link text-2xl font-cinematic tracking-widest text-gray-300 hover:text-white transition-colors">CONTACT</a>
+        <a href="Joseph_Beloria_Resume.pdf" download class="mobile-link mt-8 px-8 py-3 border border-blue-500 text-blue-400 font-cinematic tracking-widest rounded shadow-[0_0_15px_rgba(59,130,246,0.2)]">RESUME</a>
+    </div>
+
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-director-900/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="font-cinematic text-xl tracking-widest text-white glitch-hover">JRB.</a>
+            
+            <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide text-gray-400">
                 <a href="#work" class="hover:text-white transition-colors">WORKS</a>
                 <a href="#experience" class="hover:text-white transition-colors">EXPERIENCE</a>
@@ -153,79 +166,79 @@
                 <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
                 <a href="Joseph_Beloria_Resume.pdf" download class="px-4 py-2 border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-colors rounded shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]">RESUME</a>
             </div>
-            <a href="#contact" class="md:hidden text-white"><i class="fa-solid fa-bars"></i></a>
+            
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl hover:text-blue-500 transition-colors"><i class="fa-solid fa-bars"></i></button>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center justify-center pt-20">
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] md:blur-[128px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] md:blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
         </div>
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Flexible Fast-Learner</p>
+        <div class="relative z-10 text-center px-4 md:px-6 w-full max-w-5xl mx-auto">
+            <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-2 md:mb-4 uppercase text-xs md:text-sm">Flexible Fast-Learner</p>
             
-            <!-- Hero Stack Container: Text and Image aligned to exact same center -->
+            <!-- Hero Stack Container: Responsive Text scaling to prevent mobile overflow -->
             <div class="hero-grid-stack my-4 w-full relative">
-                <!-- BACKGROUND TEXT: Solid Fill (Anchored to top/center) -->
-                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none flex flex-col justify-center h-full">
+                <!-- BACKGROUND TEXT: Solid Fill -->
+                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-[2.5rem] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.1] md:leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none flex flex-col justify-center h-full break-words">
                     <span>JOSEPH RYAN</span>
                     <span>BELORIA</span>
                 </h1>
 
-                <!-- MIDDLE LAYER: Free-Form Image Overlay (Anchored to bottom, with smooth bottom fade) -->
-                <!-- ENSURE image_13a075.png HAS A TRANSPARENT BACKGROUND FOR THIS TO LOOK PERFECT -->
-                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 h-[300px] md:h-[450px] lg:h-[550px] w-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+                <!-- MIDDLE LAYER: Responsive Image Overlay -->
+                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 h-[220px] sm:h-[300px] md:h-[450px] lg:h-[550px] w-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
                 
-                <!-- FOREGROUND TEXT: Stroke Only (Softened opacity so it doesn't ruin the face) -->
-                <h1 aria-hidden="true" class="z-20 reveal zoom-in delay-100 font-cinematic text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] tracking-tighter select-none pointer-events-none flex flex-col justify-center h-full" style="color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08);">
+                <!-- FOREGROUND TEXT: Stroke Only -->
+                <h1 aria-hidden="true" class="z-20 reveal zoom-in delay-100 font-cinematic text-[2.5rem] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.1] md:leading-[0.85] tracking-tighter select-none pointer-events-none flex flex-col justify-center h-full break-words" style="color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08);">
                     <span>JOSEPH RYAN</span>
                     <span>BELORIA</span>
                 </h1>
-                
             </div>
 
-            <p class="reveal fade-up delay-200 text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed mt-6">
+            <p class="reveal fade-up delay-200 text-base sm:text-lg md:text-xl text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed mt-4 md:mt-6 px-4">
                 4th Year Electrical Engineering Undergraduate at TUP-Manila. Bridging the gap between physical power systems, hardware prototyping, and AI-driven software development.
             </p>
-            <div class="reveal fade-up delay-300 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#work" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-cinematic font-bold tracking-widest text-sm hover:bg-gray-200 hover:scale-105 transition-all uppercase">Explore Works</a>
-                <a href="Joseph_Beloria_Resume.pdf" download class="w-full sm:w-auto px-8 py-4 border border-blue-500/50 bg-blue-500/10 text-blue-400 font-cinematic font-bold tracking-widest text-sm hover:bg-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:scale-105 transition-all uppercase"><i class="fa-solid fa-download mr-2"></i> Get Resume</a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-cinematic font-bold tracking-widest text-sm hover:bg-white/10 hover:scale-105 transition-all uppercase">Contact Me</a>
+            <div class="reveal fade-up delay-300 flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
+                <a href="#work" class="w-full sm:w-auto px-6 py-4 bg-white text-black font-cinematic font-bold tracking-widest text-sm hover:bg-gray-200 hover:scale-105 transition-all uppercase text-center">Explore Works</a>
+                <a href="Joseph_Beloria_Resume.pdf" download class="w-full sm:w-auto px-6 py-4 border border-blue-500/50 bg-blue-500/10 text-blue-400 font-cinematic font-bold tracking-widest text-sm hover:bg-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:scale-105 transition-all uppercase text-center"><i class="fa-solid fa-download mr-2"></i> Get Resume</a>
+                <a href="#contact" class="w-full sm:w-auto px-6 py-4 border border-white/20 text-white font-cinematic font-bold tracking-widest text-sm hover:bg-white/10 hover:scale-105 transition-all uppercase text-center">Contact Me</a>
             </div>
         </div>
     </header>
 
-    <section id="work" class="py-24 bg-director-800 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-16 border-l-4 border-blue-500 pl-6 uppercase tracking-wider">Featured Masterpieces</h2>
+    <section id="work" class="py-16 md:py-24 bg-director-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-10 md:mb-16 border-l-4 border-blue-500 pl-4 md:pl-6 uppercase tracking-wider">Featured Masterpieces</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
                 <!-- KuryenteCalc - Featured Full Width -->
                 <div class="reveal fade-up lg:col-span-12 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 shadow-lg">
                     <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/20 to-transparent z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
+                    <div class="relative z-10 p-6 sm:p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
                         <div class="flex-1">
                             <div class="flex flex-wrap items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest rounded-full border border-emerald-500/30">NATIVE MOBILE APP</span>
-                                <span class="text-gray-500 text-sm flex items-center gap-2">
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] sm:text-xs font-bold tracking-widest rounded-full border border-emerald-500/30">NATIVE MOBILE APP</span>
+                                <span class="text-gray-500 text-xs sm:text-sm flex items-center gap-2">
                                     <i class="devicon-javascript-plain"></i> JavaScript
                                     <i class="devicon-firebase-plain colored"></i> Firebase
                                 </span>
                             </div>
-                            <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">KuryenteCalc: Smart Bill Optimizer</h3>
-                            <p class="text-gray-400 mb-6 leading-relaxed">
+                            <h3 class="font-cinematic text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">KuryenteCalc: Smart Bill Optimizer</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
                                 A cross-platform mobile application and web tool that estimates monthly electricity bills. Features a custom Generative AI chatbot (Manong Kurti) and AI-based OCR bill scanning, securely powered by Netlify Serverless Functions and synchronized globally via Firebase Authentication & Firestore. Built natively for Android using Capacitor.
                             </p>
-                            <a href="https://whimsical-brioche-73c97d.netlify.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-emerald-400 transition-colors">
+                            <a href="https://whimsical-brioche-73c97d.netlify.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-emerald-400 transition-colors text-sm sm:text-base">
                                 View Web Application <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
                             </a>
                         </div>
                         
                         <!-- KuryenteCalc Looping Video Ad -->
                         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center mt-6 md:mt-0">
-                            <div class="relative w-full max-w-[220px] aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] group-hover:border-emerald-500/30 transition-all duration-500 group-hover:scale-105 bg-black">
+                            <div class="relative w-[180px] sm:w-full max-w-[220px] aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] group-hover:border-emerald-500/30 transition-all duration-500 md:group-hover:scale-105 bg-black">
                                 <video src="kuryentecalc_ad.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                             </div>
                         </div>
@@ -236,24 +249,24 @@
                 <!-- Mira AI - Featured Full Width -->
                 <div class="reveal fade-up delay-100 lg:col-span-12 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 shadow-lg">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
+                    <div class="relative z-10 p-6 sm:p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
                         <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">ENGINEERING SOFTWARE</span>
-                                <span class="text-gray-500 text-sm flex items-center gap-2"><i class="devicon-python-plain colored"></i> Python & Streamlit</span>
+                            <div class="flex flex-wrap items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-[10px] sm:text-xs font-bold tracking-widest rounded-full border border-blue-500/30">ENGINEERING SOFTWARE</span>
+                                <span class="text-gray-500 text-xs sm:text-sm flex items-center gap-2"><i class="devicon-python-plain colored"></i> Python & Streamlit</span>
                             </div>
-                            <h3 class="font-cinematic text-3xl md:text-4xl font-bold mb-4 text-white">MiraAi: Solar Auto-Designer</h3>
-                            <p class="text-gray-400 mb-6 leading-relaxed">
+                            <h3 class="font-cinematic text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">MiraAi: Solar Auto-Designer</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
                                 An autonomous multi-agent workflow (powered by CrewAI and Google Gemini) designed for electrical engineers. Automatically calculates residential electrical loads, determines breaker sizing, and drafts NEC-compliant Single-Line Diagrams (SLDs) for grid-tie solar systems.
                             </p>
-                            <a href="https://solar-engineering-ai.streamlit.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors">
+                            <a href="https://solar-engineering-ai.streamlit.app" target="_blank" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors text-sm sm:text-base">
                                 View Live Application <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
                             </a>
                         </div>
                         
                         <!-- MiraAI Looping Video Ad -->
                         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center mt-6 md:mt-0">
-                            <div class="relative w-full max-w-[220px] aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] group-hover:border-blue-500/30 transition-all duration-500 group-hover:scale-105 bg-black">
+                            <div class="relative w-[180px] sm:w-full max-w-[220px] aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] group-hover:border-blue-500/30 transition-all duration-500 md:group-hover:scale-105 bg-black">
                                 <video src="miraai_ad.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                             </div>
                         </div>
@@ -262,34 +275,34 @@
                 </div>
 
                 <!-- Arduino Project -->
-                <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                <div class="reveal fade-up delay-200 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-6 sm:p-8 md:p-10 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="devicon-arduino-plain colored"></i> C++ / Hardware</div>
-                        <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Custom Bluetooth Audio System</h3>
+                        <div class="mb-4 text-gray-500 text-xs sm:text-sm flex items-center gap-2"><i class="devicon-arduino-plain colored"></i> C++ / Hardware</div>
+                        <h3 class="font-cinematic text-xl sm:text-2xl font-bold mb-3 text-white">Custom Bluetooth Audio System</h3>
                         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                             Engineered and programmed a custom Bluetooth speaker from scratch using Arduino IDE. Handled the hardware wiring, audio decoding logic, signal amplification, and enclosure design to deliver high-fidelity wireless audio.
                         </p>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">C++</span>
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Circuit Design</span>
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">IoT</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">C++</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">Circuit Design</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">IoT</span>
                     </div>
                 </div>
 
                 <!-- Elevator Control System -->
-                <div class="reveal fade-up delay-300 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-8 md:p-10 flex flex-col justify-between shadow-lg">
+                <div class="reveal fade-up delay-300 lg:col-span-6 group card-zoom relative rounded-xl overflow-hidden bg-director-900 border border-white/10 p-6 sm:p-8 md:p-10 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="mb-4 text-gray-500 text-sm flex items-center gap-2"><i class="fa-solid fa-elevator text-yellow-500"></i> Control Engineering</div>
-                        <h3 class="font-cinematic text-2xl font-bold mb-3 text-white">Elevator Control Overhaul</h3>
+                        <div class="mb-4 text-gray-500 text-xs sm:text-sm flex items-center gap-2"><i class="fa-solid fa-elevator text-yellow-500"></i> Control Engineering</div>
+                        <h3 class="font-cinematic text-xl sm:text-2xl font-bold mb-3 text-white">Elevator Control Overhaul</h3>
                         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
                             During my OJT at Dex International, I built elevator control panels and commissioned systems. Highlight: Successfully assisted in changing the control system for a legacy elevator at the National Museum of Fine Arts, testing and verifying mechanical safety.
                         </p>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Industrial Controls</span>
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">Commissioning</span>
-                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">PMS</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">Industrial Controls</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">Commissioning</span>
+                        <span class="px-2 py-1 bg-white/5 text-gray-300 text-[10px] sm:text-xs rounded">PMS</span>
                     </div>
                 </div>
 
@@ -297,217 +310,215 @@
         </div>
     </section>
 
-    <section id="experience" class="py-24 bg-director-900 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-16 border-l-4 border-white pl-6 uppercase tracking-wider">Career Timeline</h2>
+    <section id="experience" class="py-16 md:py-24 bg-director-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <h2 class="reveal slide-right font-cinematic text-3xl md:text-5xl font-bold mb-10 md:mb-16 border-l-4 border-white pl-4 md:pl-6 uppercase tracking-wider">Career Timeline</h2>
             
             <div class="relative border-l border-white/20 ml-3 md:ml-6 space-y-12">
                 
-                <div class="reveal slide-left relative pl-8 md:pl-12">
+                <div class="reveal slide-left relative pl-6 sm:pl-8 md:pl-12">
                     <div class="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                        <h3 class="text-xl font-bold text-white font-cinematic">Electrical Staff / Assistant (OJT)</h3>
-                        <span class="text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Jun 2025 - Sep 2025</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-white font-cinematic">Electrical Staff / Assistant (OJT)</h3>
+                        <span class="text-xs sm:text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0 shadow-[0_0_10px_rgba(59,130,246,0.1)]">Jun 2025 - Sep 2025</span>
                     </div>
-                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-building mr-2"></i>Dex International Company | Quezon City</h4>
-                    <ul class="text-gray-400 text-sm space-y-2 list-disc ml-4">
+                    <h4 class="text-sm sm:text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-building mr-2"></i>Dex International Company | Quezon City</h4>
+                    <ul class="text-gray-400 text-xs sm:text-sm space-y-2 list-disc ml-4 pr-2">
                         <li>Built control panels and systems for commercial elevators.</li>
                         <li>Tested, commissioned, and performed Preventive Maintenance (PMS) on company-built elevators.</li>
                         <li><strong>Major Project:</strong> Upgraded the control system for a legacy elevator at the National Museum of Fine Arts.</li>
                     </ul>
                 </div>
 
-                <div class="reveal slide-left delay-100 relative pl-8 md:pl-12">
+                <div class="reveal slide-left delay-100 relative pl-6 sm:pl-8 md:pl-12">
                     <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                        <h3 class="text-xl font-bold text-white font-cinematic">Store Clerk / Crew</h3>
-                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Mar 2026 - Jun 2026</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-white font-cinematic">Store Clerk / Crew</h3>
+                        <span class="text-xs sm:text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Mar 2026 - Jun 2026</span>
                     </div>
-                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-store mr-2"></i>Alfamart - Eton Tower | Makati City</h4>
-                    <p class="text-gray-400 text-sm">Handled fast-paced retail operations including cashiering, strict inventory management, and systematic checking of goods and supplies.</p>
+                    <h4 class="text-sm sm:text-md text-gray-300 mb-3 font-medium"><i class="fa-solid fa-store mr-2"></i>Alfamart - Eton Tower | Makati City</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm pr-2">Handled fast-paced retail operations including cashiering, strict inventory management, and systematic checking of goods and supplies.</p>
                 </div>
 
-                <div class="reveal slide-left delay-200 relative pl-8 md:pl-12">
+                <div class="reveal slide-left delay-200 relative pl-6 sm:pl-8 md:pl-12">
                     <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                        <h3 class="text-xl font-bold text-white font-cinematic">SPES Kitchen Staff (Scullery)</h3>
-                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2023 - Dec 2023</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-white font-cinematic">SPES Kitchen Staff (Scullery)</h3>
+                        <span class="text-xs sm:text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2023 - Dec 2023</span>
                     </div>
-                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-utensils mr-2"></i>Project Pie / Shopwise | Makati City</h4>
-                    <p class="text-gray-400 text-sm">Executed food preparation protocols based on exact menu specifications. Maintained strict hygiene standards and operational protocols.</p>
+                    <h4 class="text-sm sm:text-md text-gray-300 mb-3 font-medium"><i class="fa-solid fa-utensils mr-2"></i>Project Pie / Shopwise | Makati City</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm pr-2">Executed food preparation protocols based on exact menu specifications. Maintained strict hygiene standards and operational protocols.</p>
                 </div>
 
-                <div class="reveal slide-left delay-300 relative pl-8 md:pl-12">
+                <div class="reveal slide-left delay-300 relative pl-6 sm:pl-8 md:pl-12">
                     <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-500 border-2 border-director-900"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                        <h3 class="text-xl font-bold text-white font-cinematic">Admin Encoder (GIP)</h3>
-                        <span class="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2022 - Nov 2022</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-white font-cinematic">Admin Encoder (GIP)</h3>
+                        <span class="text-xs sm:text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">Aug 2022 - Nov 2022</span>
                     </div>
-                    <h4 class="text-md text-gray-300 mb-4 font-medium"><i class="fa-solid fa-desktop mr-2"></i>Brgy. Sta Cruz Hall | Makati City</h4>
-                    <p class="text-gray-400 text-sm">Managed administrative workflows. Digitized and encoded massive datasets of local residents utilizing Microsoft Excel for efficient retrieval.</p>
+                    <h4 class="text-sm sm:text-md text-gray-300 mb-3 font-medium"><i class="fa-solid fa-desktop mr-2"></i>Brgy. Sta Cruz Hall | Makati City</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm pr-2">Managed administrative workflows. Digitized and encoded massive datasets of local residents utilizing Microsoft Excel for efficient retrieval.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- NEW Layout: Education & Skills Wall -->
-    <section id="skills" class="py-24 bg-director-800 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="skills" class="py-16 md:py-24 bg-director-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
             
             <!-- Education Top Section -->
-            <div class="mb-20">
-                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
+            <div class="mb-16 md:mb-20">
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="reveal fade-up bg-director-900 border border-white/5 p-6 rounded-lg card-zoom shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div class="reveal fade-up bg-director-900 border border-white/5 p-5 md:p-6 rounded-lg card-zoom shadow-lg">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
-                            <h3 class="text-lg font-bold text-white font-cinematic">Technological University of the Philippines-Manila</h3>
-                            <span class="text-blue-400 text-sm font-bold whitespace-nowrap">2022 - 2026</span>
+                            <h3 class="text-base md:text-lg font-bold text-white font-cinematic">Technological University of the Philippines-Manila</h3>
+                            <span class="text-blue-400 text-xs md:text-sm font-bold whitespace-nowrap">2022 - 2026</span>
                         </div>
-                        <p class="text-md text-gray-300 font-medium">BS in Electrical Engineering</p>
-                        <p class="text-sm text-gray-500 mt-2">4th Year Undergraduate</p>
+                        <p class="text-sm md:text-md text-gray-300 font-medium">BS in Electrical Engineering</p>
+                        <p class="text-xs md:text-sm text-gray-500 mt-2">4th Year Undergraduate</p>
                     </div>
 
-                    <div class="reveal fade-up delay-100 bg-director-900 border border-white/5 p-6 rounded-lg card-zoom shadow-lg">
+                    <div class="reveal fade-up delay-100 bg-director-900 border border-white/5 p-5 md:p-6 rounded-lg card-zoom shadow-lg">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
-                            <h3 class="text-lg font-bold text-white font-cinematic">Makati High School</h3>
-                            <span class="text-gray-400 text-sm font-bold whitespace-nowrap">2020 - 2022</span>
+                            <h3 class="text-base md:text-lg font-bold text-white font-cinematic">Makati High School</h3>
+                            <span class="text-gray-400 text-xs md:text-sm font-bold whitespace-nowrap">2020 - 2022</span>
                         </div>
-                        <p class="text-md text-gray-300 font-medium">Senior High School (STEM)</p>
-                        <p class="text-sm text-blue-400 mt-2"><i class="fa-solid fa-medal mr-1"></i> Graduated with High Honors (95 Avg)</p>
+                        <p class="text-sm md:text-md text-gray-300 font-medium">Senior High School (STEM)</p>
+                        <p class="text-xs md:text-sm text-blue-400 mt-2"><i class="fa-solid fa-medal mr-1"></i> Graduated with High Honors (95 Avg)</p>
                     </div>
                 </div>
             </div>
 
             <!-- Wall of Brands: Technical Arsenal -->
             <div>
-                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
                 
-                <!-- Huge Grid Layout mimicking the "Logo Wall" -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal fade-up">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 reveal fade-up">
                     
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-firebase-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Firebase</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-firebase-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Firebase</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-netlify-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Netlify</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-netlify-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Netlify</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-androidstudio-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center text-center">Android Studio</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-androidstudio-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Android Studio</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-nodejs-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Node.js</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-nodejs-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Node.js</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-javascript-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">JavaScript</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-javascript-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">JavaScript</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-python-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Python</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-python-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Python</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-streamlit-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Streamlit</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-streamlit-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Streamlit</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-cplusplus-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">C++</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-cplusplus-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">C++</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-arduino-plain colored text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Arduino</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-arduino-plain colored text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Arduino</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="devicon-ionic-original text-blue-500 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Capacitor</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="devicon-ionic-original text-blue-500 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Capacitor</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-robot text-purple-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Generative AI</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-robot text-purple-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Generative AI</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-bolt text-yellow-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">AutoCAD/Design</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-bolt text-yellow-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">AutoCAD</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-file-excel text-green-600 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Excel</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-file-excel text-green-600 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Excel</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-file-word text-blue-600 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Word</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-file-word text-blue-600 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Word</span>
                     </div>
 
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-brands fa-google text-red-500 text-5xl md:text-6xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center text-center">Google Apps</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-brands fa-google text-red-500 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Google Apps</span>
                     </div>
 
                 </div>
             </div>
 
-            <div class="mt-20">
-                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-10 border-l-4 border-emerald-500 pl-4 uppercase">Soft Skills & Traits</h2>
+            <div class="mt-16 md:mt-20">
+                <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-emerald-500 pl-4 uppercase">Soft Skills & Traits</h2>
                 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal fade-up">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 reveal fade-up">
                     
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-users-gear text-orange-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Leadership</span>
-                    </div>
-                    
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-puzzle-piece text-green-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Problem Solving</span>
-                    </div>
-
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-brain text-rose-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Critical Thinking</span>
-                    </div>
-
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-shuffle text-blue-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Adaptability</span>
-                    </div>
-
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-comments text-purple-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Communication</span>
-                    </div>
-
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-handshake-angle text-pink-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Collaboration</span>
-                    </div>
-
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-magnifying-glass-chart text-yellow-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Research & Analysis</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-users-gear text-orange-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Leadership</span>
                     </div>
                     
-                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
-                        <i class="fa-solid fa-clock text-emerald-400 text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xs font-medium text-gray-400 group-hover:text-white text-center">Time Management</span>
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-puzzle-piece text-green-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Problem Solving</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-brain text-rose-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Critical Thinking</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-shuffle text-blue-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Adaptability</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-comments text-purple-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Communication</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-handshake-angle text-pink-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Collaboration</span>
+                    </div>
+
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass-chart text-yellow-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Research</span>
+                    </div>
+                    
+                    <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
+                        <i class="fa-solid fa-clock text-emerald-400 text-3xl sm:text-4xl md:text-5xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Time Management</span>
                     </div>
                 </div>
             </div>
@@ -516,20 +527,20 @@
     </section>
 
     <footer id="contact" class="bg-black py-16 border-t border-white/10 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
-            <h2 class="reveal fade-up font-cinematic text-4xl font-bold mb-8 text-white uppercase tracking-widest">Let's Connect</h2>
-            <p class="reveal fade-up delay-100 text-gray-400 mb-10 text-center max-w-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+            <h2 class="reveal fade-up font-cinematic text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-white uppercase tracking-widest text-center">Let's Connect</h2>
+            <p class="reveal fade-up delay-100 text-gray-400 mb-8 sm:mb-10 text-center max-w-lg text-sm sm:text-base">
                 Whether it's electrical design, hardware prototyping, or building AI-driven engineering tools, I'm ready for the next challenge.
             </p>
             
-            <div class="reveal fade-up delay-200 flex flex-col sm:flex-row gap-6 mb-16">
-                <a href="mailto:josephryanbeloria12@gmail.com" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:-translate-y-1">
+            <div class="reveal fade-up delay-200 flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 w-full sm:w-auto px-4 sm:px-0">
+                <a href="mailto:josephryanbeloria12@gmail.com" class="flex justify-center items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-4 sm:py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] sm:hover:-translate-y-1">
                     <i class="fa-solid fa-envelope text-blue-400 group-hover:text-blue-300"></i>
-                    <span class="text-gray-200 text-sm">josephryanbeloria12@gmail.com</span>
+                    <span class="text-gray-200 text-xs sm:text-sm">josephryanbeloria12@gmail.com</span>
                 </a>
-                <a href="tel:+639915870342" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:-translate-y-1">
+                <a href="tel:+639915870342" class="flex justify-center items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 px-6 py-4 sm:py-3 rounded-lg transition-all group shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] sm:hover:-translate-y-1">
                     <i class="fa-solid fa-phone text-blue-400 group-hover:text-blue-300"></i>
-                    <span class="text-gray-200 text-sm">+63 991 587 0342</span>
+                    <span class="text-gray-200 text-xs sm:text-sm">+63 991 587 0342</span>
                 </a>
             </div>
 
@@ -542,6 +553,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Intersection Observer for Scroll Animations
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -561,6 +573,7 @@
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
 
+            // Top Scroll Progress Bar
             window.addEventListener('scroll', () => {
                 const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
                 const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -568,10 +581,27 @@
                 document.getElementById("scroll-progress-bar").style.width = scrolled;
             });
 
-            document.addEventListener('mousemove', (e) => {
-                document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-                document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-            });
+            // Interactive Mouse Glow (Desktop only)
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                document.addEventListener('mousemove', (e) => {
+                    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+                    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+                });
+            }
+
+            // Mobile Menu Toggle Logic
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle('translate-x-full');
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
         });
     </script>
 </body>
