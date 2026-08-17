@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Joseph Ryan Beloria | Electrical Engineer & Developer</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,15 +41,22 @@
             --mouse-x: 50vw;
             --mouse-y: 50vh;
         }
-        body { background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        
+        /* STRICT MOBILE OVERFLOW PREVENTION */
+        html, body { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+            background-color: #050505; 
+            color: #f4f4f5; 
+        }
         
         /* Interactive Mouse Glow */
         .glow-effect {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 1;
             background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.08), transparent 80%);
@@ -60,8 +67,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 9998;
             opacity: 0.03;
@@ -117,7 +124,7 @@
             transform: translate(0) scale(1);
         }
 
-        /* Perfect Center Grid Overlay Stack for Hero Image */
+        /* Perfect Center Grid Overlay Stack for Magazine Cover */
         .hero-grid-stack {
             display: grid;
             grid-template-columns: 1fr;
@@ -130,7 +137,7 @@
             grid-row: 1 / -1;
         }
 
-        /* Animation Delays for Grids */
+        /* Animation Delays */
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
@@ -153,7 +160,6 @@
         <a href="Joseph_Beloria_Resume.pdf" download class="mobile-link mt-8 px-8 py-3 border border-blue-500 text-blue-400 font-cinematic tracking-widest rounded shadow-[0_0_15px_rgba(59,130,246,0.2)]">RESUME</a>
     </div>
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-director-900/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="font-cinematic text-xl tracking-widest text-white glitch-hover">JRB.</a>
@@ -177,25 +183,29 @@
             <div class="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] md:blur-[128px] animate-pulse"></div>
             <div class="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] md:blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
         </div>
+        
         <div class="relative z-10 text-center px-4 md:px-6 w-full max-w-5xl mx-auto">
             <p class="reveal fade-down text-blue-500 font-medium tracking-[0.2em] mb-2 md:mb-4 uppercase text-xs md:text-sm">Flexible Fast-Learner</p>
             
-            <!-- Hero Stack Container: Responsive Text scaling to prevent mobile overflow -->
+            <!-- Magazine Cover Layering Trick -->
             <div class="hero-grid-stack my-4 w-full relative">
-                <!-- BACKGROUND TEXT: Solid Fill -->
-                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-[2.5rem] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.1] md:leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none flex flex-col justify-center h-full break-words">
+                
+                <!-- BACKGROUND LAYER: Solid Name Text -->
+                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[1.1] md:leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none flex flex-col justify-center break-words w-full px-2">
                     <span>JOSEPH RYAN</span>
                     <span>BELORIA</span>
                 </h1>
 
-                <!-- MIDDLE LAYER: Responsive Image Overlay -->
-                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 h-[220px] sm:h-[300px] md:h-[450px] lg:h-[550px] w-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+                <!-- MIDDLE LAYER: The Cutout Image with Base Fade -->
+                <!-- Note: Ensure image_13a075.png is a transparent background cutout for the best effect -->
+                <img src="image_13a078.png" alt="Joseph Ryan Beloria" class="z-10 h-[280px] sm:h-[400px] md:h-[550px] w-auto object-contain object-bottom pointer-events-none reveal fade-up drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
                 
-                <!-- FOREGROUND TEXT: Stroke Only -->
-                <h1 aria-hidden="true" class="z-20 reveal zoom-in delay-100 font-cinematic text-[2.5rem] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.1] md:leading-[0.85] tracking-tighter select-none pointer-events-none flex flex-col justify-center h-full break-words" style="color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08);">
+                <!-- FOREGROUND LAYER: Faint Text Stroke Overlay -->
+                <h1 aria-hidden="true" class="z-20 reveal zoom-in delay-100 font-cinematic text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[1.1] md:leading-[0.85] tracking-tighter select-none pointer-events-none flex flex-col justify-center break-words w-full px-2" style="color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08);">
                     <span>JOSEPH RYAN</span>
                     <span>BELORIA</span>
                 </h1>
+
             </div>
 
             <p class="reveal fade-up delay-200 text-base sm:text-lg md:text-xl text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed mt-4 md:mt-6 px-4">
@@ -242,7 +252,6 @@
                                 <video src="kuryentecalc_ad.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -270,7 +279,6 @@
                                 <video src="miraai_ad.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -367,7 +375,7 @@
     <section id="skills" class="py-16 md:py-24 bg-director-800 relative z-10">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             
-            <!-- Education Top Section -->
+            <!-- Education -->
             <div class="mb-16 md:mb-20">
                 <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-blue-500 pl-4 uppercase">Education</h2>
                 
@@ -392,7 +400,7 @@
                 </div>
             </div>
 
-            <!-- Wall of Brands: Technical Arsenal -->
+            <!-- Wall of Brands: Technical Arsenal Grid -->
             <div>
                 <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-white pl-4 uppercase">Technical Arsenal</h2>
                 
@@ -458,6 +466,7 @@
                         <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">AutoCAD</span>
                     </div>
 
+                    <!-- Office Apps -->
                     <div class="aspect-square bg-director-900 border border-white/5 rounded-xl flex flex-col items-center justify-center p-3 md:p-4 hover:border-white/20 hover:bg-white/5 transition-all group shadow-lg">
                         <i class="fa-solid fa-file-excel text-green-600 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">MS Excel</span>
@@ -472,10 +481,10 @@
                         <i class="fa-brands fa-google text-red-500 text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-3 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-white text-center">Google Apps</span>
                     </div>
-
                 </div>
             </div>
 
+            <!-- Wall of Brands: Soft Skills Grid -->
             <div class="mt-16 md:mt-20">
                 <h2 class="reveal slide-right font-cinematic text-3xl font-bold mb-8 md:mb-10 border-l-4 border-emerald-500 pl-4 uppercase">Soft Skills & Traits</h2>
                 
