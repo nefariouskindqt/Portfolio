@@ -244,8 +244,8 @@
             <!-- Magazine Cover Layering Trick -->
             <div class="hero-grid-stack my-4 w-full relative">
                 
-                <!-- BACKGROUND LAYER: Solid Name Text -->
-                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[1.1] md:leading-[0.85] gradient-text tracking-tighter drop-shadow-2xl select-none flex flex-col justify-center break-words w-full px-2">
+                <!-- BACKGROUND LAYER: Solid Name Text with ENHANCED GLOW -->
+                <h1 class="z-0 reveal zoom-in delay-100 font-cinematic text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[1.1] md:leading-[0.85] tracking-tighter select-none flex flex-col justify-center break-words w-full px-2" style="background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #999999 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0px 0px 20px rgba(255,255,255,0.4)) drop-shadow(0px 10px 10px rgba(0,0,0,0.8));">
                     <span>JOSEPH RYAN</span>
                     <span>BELORIA</span>
                 </h1>
@@ -357,13 +357,16 @@
                             </a>
                         </div>
                         
-                        <!-- GridTech Visuals: ERD Reference -->
-                        <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
+                        <!-- GridTech Visuals: ERD Reference (Perfectly aligned with others) -->
+                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center mt-6 md:mt-0">
                             <!-- ERD Reference Image (Click to Zoom) -->
                             <div class="relative w-[180px] sm:w-full max-w-[220px] aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-cyan-500/30 transition-all duration-300 md:hover:scale-105 cursor-pointer flex flex-col items-center justify-center group/img" onclick="openModal('image_4ac50c.png')">
-                                <img src="image_4ac50c.png" alt="Database Schema ERD" class="w-full h-full object-contain p-2 opacity-80 group-hover/img:opacity-100 transition-opacity">
-                                <div class="absolute inset-0 bg-cyan-900/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                                    <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl shadow-[0_0_15px_rgba(0,0,0,0.8)]"></i>
+                                <img src="image_4ac50c.png" alt="Database Schema ERD" class="w-full h-full object-contain p-4 opacity-70 group-hover/img:opacity-100 transition-opacity filter grayscale group-hover/img:grayscale-0">
+                                <div class="absolute inset-0 bg-cyan-900/30 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                    <div class="bg-black/80 px-4 py-2 rounded-full border border-cyan-500/50 flex items-center gap-2 transform translate-y-4 group-hover/img:translate-y-0 transition-transform duration-300 shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                                        <i class="fa-solid fa-magnifying-glass-plus text-cyan-400 text-sm"></i>
+                                        <span class="text-white text-xs font-bold tracking-wider">VIEW ERD</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
